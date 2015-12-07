@@ -1,93 +1,89 @@
-﻿var inpStr = document.getElementById("calres");
-
-var newvalue = false;
+﻿var inpStr = $("#calres");
 var medVal;
 var operation = "";
 var i = 0;
 
-document.getElementById("one").onclick = function(){ num(1); }
-document.getElementById("two").onclick = function() { num(2); }
-document.getElementById("three").onclick = function() { num(3); }
-document.getElementById("four").onclick = function() { num(4); }
-document.getElementById("five").onclick = function() { num(5); }
-document.getElementById("six").onclick = function() { num(6); }
-document.getElementById("seven").onclick = function() { num(7); }
-document.getElementById("eight").onclick = function() { num(8); }
-document.getElementById("nine").onclick = function() { num(9); }
-document.getElementById("zero").onclick = function() { num(0); }
+$("body").delegate(":button", "click", function() {
+				if ($(this).attr("id") == $(this).val()) {
+					var n = $(this).attr("id");
+					num (n);	
+				}
+			});
 
-document.getElementById("incr").onclick = function() { act("+"); }
-document.getElementById("mult").onclick = function() { act("*"); }
-document.getElementById("divide").onclick = function() { act("/"); }
-document.getElementById("minus").onclick = function() { act("-"); }
-
-document.getElementById("eqv").onclick = function() { eqv(); }
-document.getElementById("cls").onclick = function() { clear(); }
-document.getElementById("point").onclick = function() { dot(); }
-document.getElementById("plusm").onclick = function() { plMin(); }
-
-// input numbers
+$("#incr").bind("click", function() { 
+			var n = "+";
+			act(n);
+			}); 	
+$("#minus").bind("click", function() { 
+			var n = "-";
+			act(n);
+			}); 
+$("#mult").bind("click", function() { 
+			var n = "*";
+			act(n);
+			});
+$("#divide").bind("click", function() { 
+			var n = "/";
+			act(n);
+			});  			
+			
+$("#point").bind("click", function() { 
+			if (i == 0) {
+				inpStr.val(function(index, curValue) {
+				return curValue + "."});
+				i++;
+			} else {
+				return inpStr.val();
+			}
+		}); 
+		
+$("#plusm").bind("click", function() { 
+				inpStr.val(function(index, curValue) {
+				return curValue * -1 });
+			}); 
+			
+$("#cls").bind("click", function() { 
+		medVal = "";
+		inpStr.val("");
+		operation = "";
+		i = 0;
+		});
+			
+$("#eqv").bind("click", function() { 
+	switch(operation) {
+		case "+":
+			inpStr.val(function(index, curValue) {
+			return +medVal + +curValue;});
+		break;
+		case "-":
+			inpStr.val(function(index, curValue) {
+			return +medVal - +curValue;});
+		break;
+		case "*":
+			inpStr.val(function(index, curValue) {
+			return +medVal * +curValue;});
+		break;
+		case "/":
+		if (inpStr.val() == 0) {
+			inpStr.val("Делить на 0 не надо");
+		} else {
+			inpStr.val(function(index, curValue) {
+			return +medVal / +curValue;});
+		}
+		break;
+	}
+});
+			
 function num(n) {
-	while(newvalue) {
-		inpStr.value = n;
-		newvalue = false;
-	}
-	if (inpStr.value == "0") {
-		inpStr.value = n;
-	} else {
-		inpStr.value += n;
-	}
+	inpStr.val(function(index, curValue) {
+		return curValue + n;
+	});
 }
 
 // action
 function act(x) {
-	medVal = +inpStr.value;
+	medVal = inpStr.val();
 	operation = x;
-	inpStr.value = "";
+	inpStr.val("");
 	i = 0;
-}
-
-// final result
-function eqv() {
-	switch(operation) {
-		case "+":
-			inpStr.value = medVal + +(inpStr.value);
-		break;
-		case "-":
-			inpStr.value = medVal - +(inpStr.value);
-		break;
-		case "*":
-			inpStr.value = medVal * +(inpStr.value);
-		break;
-		case "/":
-		if (inpStr.value == 0) {
-			inpStr.value = "Делить на 0 не надо";
-		} else {
-			inpStr.value = medVal / +(inpStr.value);
-		}
-		break;
-	}
-}
-
-// dot
-function dot() {
-	if (i == 0) {
-		inpStr.value += "."
-		i++;
-	} else {
-		return inpStr.value;
-	}
-}
-
-// clear
-function clear() {
-	medVal = "";
-	inpStr.value = "";
-	operation = "";
-	i = 0;
-}
-
-// negotiation
-function plMin() {
-	inpStr.value = +inpStr.value * -1;
 }
