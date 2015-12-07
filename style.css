@@ -1,0 +1,139 @@
+/*Чистим все стили */
+* 				{	padding: 0;
+					margin: 0;
+				}
+   
+/* Делаем все боди серым */
+body 			{ 	background-color: gray;
+					width: 100%;
+				}
+	
+/* ################## Заголовок ################### */	
+.header-all 	 	 {   width: 1000px;
+					background-color: white;
+					border-radius: 10px;
+					margin: 0px auto;
+				}
+				
+.header-all h1 	{	padding: 40px 0px  0px 300px;}
+
+#img_header 		{	float:left;
+					margin: 10px 25px 10px 5px;
+				}
+
+/* Навигация заголовка+ скрытое меню*/	
+#child 			{	display: none; }		
+.navmenu		{  	clear: both;
+					padding: 0px 310px 10px 310px;
+				}				
+.navmenu > li 	{ 	display:inline;
+					color: blue;
+					position: relative;
+				}		
+.navmenu #child li { 	margin: 2px 5px 2px 5px;}
+
+li:hover #child 	{	display: block;
+					position: absolute;
+					top: 17px; left: 10px;
+					background-color: #fff;
+					list-style-type: none;
+					border: solid 1px #000;
+					border-radius: 5px;
+				 }
+
+/*## Центральная часть всех страниц ##*/
+
+.divall 			{	clear: both;
+					display: table;
+					width: 1000px;
+					border-radius: 10px;
+					background-color: white;
+					margin: 0 auto;
+					text-align: justify;
+					font-size: large;
+					font-family: Arial, Times New Roman, sans-serif;
+				}
+
+/*.divall:hover {color:blue;}*/
+
+/*## Футер ## */
+	
+.footer-all 		{ 	width: 1000px;
+					border-radius: 10px;
+					background-color: white;
+					text-align: center;
+					margin: 0 auto;
+				}
+
+					/* ## Стили по страницам ## */
+/* index main text */
+p.p1 			{  	margin: 5px 7px 5px 7px;
+					font-size: large;
+				}	
+
+/* веб-технологии */	
+p.p2 			{	padding: 5px 0px 10px 10px;}
+.divall ul 		{	padding: 5px 0px 20px 50px;}
+.divall dd		{	padding: 0px 0px 0px 50px;}
+
+/* HTML5 page */
+.divall .as1 	{	width: 300px; 				/* задаем ширину обтекаемого блока */
+					float: right; 				/* выравнивание блока на странице */
+					font-size: normal;
+					margin: 10px 7px 5px 5px; 	/* отступы от родителя */
+					padding: 5px; 				/* отступы внутри блока */
+					text-align: justify;
+					background-color: lightgray;
+					border-radius: 7px;
+				}
+.divall .as1 h3     {	padding: 10px 0px 10px 0px;}
+
+.divall article section	{	padding:5px 5px 5px 10px;
+					font-size: normal;
+				}
+.divall article h3 	{ 	padding: 10px 0px 10px 0px;
+				}	
+
+				
+/* CSS3 page */
+.divall .p3 		{ 	font-size: large;
+					padding: 10px 5px 10px 7px;
+				}	
+.divall article h2 	{ 	padding: 10px 0px 10px 7px;
+				}
+/* JavaScript page */			
+.divall .p4 		{ 	font-size: large;
+					padding: 10px 5px 10px 5px;
+				}
+
+/* Calculator page */
+
+.tabcalc 		{ 	vertical-align:middle;
+					text-align:center;
+					margin: 0 auto;
+					width:450px;
+					height:250px;
+					border-spacing: 3px 7px;
+					font-size: large;
+					
+				}
+		
+.tabcalc input 	{	width: 90px;
+					height:47px;
+					background: linear-gradient(to bottom, #E0E0E0, #fff);
+				}
+.tabcalc #eqv  {	width: 90px;
+					height:101px;
+				}		
+.tabcalc #zero 	{	width: 183px;
+					height:47px;
+				}
+			
+.tabcalc #calres  {	width: 460px;
+					height: 50px;
+					background: white;
+					border: 1px solid gray;
+				}
+
+/* Test Page */
+#quiz {padding: 0px 0px 10px 10px;}
